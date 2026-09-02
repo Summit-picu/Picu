@@ -210,10 +210,10 @@ Tags: Main, Summit # free-form user-facing tags with no effect on trust.
 
 | Status | Icon | Description |
 |---|:---:|---|
-| ✅ Officially verified | `` | Signature valid, key present in `root.json` at the `official` tier, key not in the CRL |
-| 💡 Locally modified | `` | Config was locally edited, or the mirror's key was explicitly added to the user's trust list (`picu trust add`) |
-| ⚠️ Unsafe | `󰫝` | Signature invalid, key is in the CRL, or the key is unknown and not confirmed by the user |
-| 👤 User-added | `` | Key is known and the signature is valid, but the mirror isn't in `root.json` — a third-party community repo with limited trust |
+| ✅ Officially verified | `` | Signature valid, key present in `root.json` at the `official` tier, key not in the CRL |
+| 💡 Locally modified | `` | Config was locally edited, or the mirror's key was explicitly added to the user's trust list (`picu trust add`) |
+| ⚠️ Unsafe | `` | Signature invalid, key is in the CRL, or the key is unknown and not confirmed by the user |
+| 👤 User-added | `󰫝` | Key is known and the signature is valid, but the mirror isn't in `root.json` — a third-party community repo with limited trust |
 
 > **Important:** `⚠️` status **blocks installation by default**. It can only be bypassed with an explicit `--allow-unsafe` flag, and even then:
 > - a warning with the key fingerprint and rejection reason is logged to the console and to `/var/log/picu/unsafe.log`;
