@@ -35,9 +35,9 @@ pub enum Commands {
         no_install: bool,
     },
     /// delete package
-    Cut(Vec<String>),
+    Cut { packages: Vec<String> },
     /// find packages
-    Find(String),
+    Find { name: String },
     /// sync mirrors
     Sync,
     /// remove old mirrors and install new
@@ -62,13 +62,21 @@ pub enum Commands {
         sync_mirrors: bool,
     },
     /// update trust of mirrors
+    #[command(subcommand)]
     Trust(TrustCommands),
 }
 
 #[derive(Subcommand)]
 pub enum TrustCommands {
     /// list mirrors and they trust level
-    List,
+    List {
+        /// show only trusted
+        #[arg(short, long)]
+        trusted_only: bool,
+        /// shot untrusted only
+        #[arg(short, long)]
+        untrusted_only: bool,
+    },
     /// add trust level to mirror
     Add {
         /// name of mirror
@@ -77,7 +85,7 @@ pub enum TrustCommands {
         user_local_setting: bool,
     },
     /// remove mirror from trust level
-    Revoke(String),
+    Revoke { name: String },
 }
 
 pub fn parser() -> Commands {
