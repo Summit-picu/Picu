@@ -1,3 +1,7 @@
 mod parser;
 
-fn main() {}
+fn main() {
+    let command = parser::parser();
+
+    println!("{:?}", command);
+}

@@ -12,7 +12,7 @@ pub struct Cli {
     pub command: Commands,
 }
 
-#[derive(Subcommand)]
+#[derive(Subcommand, Debug)]
 pub enum Commands {
     /// install packages
     Add {
@@ -66,7 +66,7 @@ pub enum Commands {
     Trust(TrustCommands),
 }
 
-#[derive(Subcommand)]
+#[derive(Subcommand, Debug)]
 pub enum TrustCommands {
     /// list mirrors and they trust level
     List {
